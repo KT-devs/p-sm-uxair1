@@ -43,7 +43,7 @@
 Все контроллеры и их методы нужно сразу описывать аннотациями [Swagger](https://docs.swagger.io/swagger-core/v1.5.0/apidocs/allclasses-noframe.html).
 Swagger UI при запущенном приложении крутится [здесь](http://localhost:8888/swagger-ui.html).
 
-Таск-борд находится в [Jira](https://uxair1.atlassian.net/jira/software/projects/UXAR1/boards/1).
+Таск-борд находится в [Jira](https://uxair2.atlassian.net/jira/software/projects/UXAR2/boards/1).
 
 Деплой и стенды пока не определены.
 
@@ -104,7 +104,7 @@ Swagger UI при запущенном приложении крутится [з
 <li>создай локальную базу данных PostgeSQL с названием <code>airline_db</code>. Можешь изменить параметры доступа (логин, пароль) в конфиге проекта под свои нужды, 
 но не отправляй эти данные в Git. Либо можно создать в PostgeSQL нового пользователя (root, root) и сделать базу данных из под него.</li>
 <li>добейся успешного запуска проекта. <a href="http://localhost:8888/swagger-ui.html"> Проверить</a>.</li>
-<li>изучи <a href="https://uxair1.atlassian.net/jira/software/projects/UXAR1/boards/1">таск-борд</a>
+<li>изучи <a href="https://uxair2.atlassian.net/jira/software/projects/UXAR2/boards/1">таск-борд</a>
 </ol>
 
 ### О таскборде
