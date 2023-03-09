@@ -6,7 +6,7 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:roo}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
   application:
     name: api-gateway
   main:
