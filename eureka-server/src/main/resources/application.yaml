@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: eureka-server
+  cloud:
+    loadbalancer:
+      eureka:
+        approximateZoneFromHostname: false
+
+server:
+  port: ${PORT:8761}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: https://${eureka.instance.hostname}:${server.port}/eureka/
