@@ -1,0 +1,57 @@
+package ru.uxair.flight.service;
+
+
+import ru.uxair.flight.entity.Seat;
+import ru.uxair.flight.repository.SeatRepository;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class SeatServiceImp implements SeatService {
+    private final SeatRepository seatRepository;
+
+    public SeatServiceImp(SeatRepository seatRepository) {
+        this.seatRepository = seatRepository;
+    }
+
+    @Override
+    public Seat findById(long id) {
+        return seatRepository.findById(id).get();
+    }
+
+    @Override
+    public Set<Seat> getAllSeat() {
+        return new HashSet<>(seatRepository.findAll());
+    }
+
+    @Override
+    public Set<Seat> getFreeSeat() {
+        return null;
+    } //todo когда появится aircraft доделать метод
+
+    @Override
+    public Set<Seat> getBusySeat() {
+        return null;
+    } //todo когда появится aircraft доделать метод
+
+    @Override
+    public Set<Seat> getReservedSeat() {
+        return null;
+    } //todo когда появится aircraft доделать метод
+
+    @Override
+    public void createSeat(Seat seat) {
+        seatRepository.save(seat);
+    }
+
+    @Override
+    public Seat findByFlightId(long flightId) {
+        seatRepository.findSeatByAircraft(flightId).getAircraft(); //todo когда появится aircraft доделать метод
+        return null;
+    }
+
+    @Override
+    public Seat findByFlightIdAndCategoryId(long flightId, long categoryId) { //todo когда появится aircraft доделать метод
+        return null;
+    }
+}
