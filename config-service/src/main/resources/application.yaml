@@ -1,7 +1,7 @@
 spring:
   datasource:
     password: root
-    url: jdbc:postgresql://localhost:5432/airline_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    url: jdbc:postgresql://localhost:8082/airline_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
     username: root
   jpa:
     database: postgresql
