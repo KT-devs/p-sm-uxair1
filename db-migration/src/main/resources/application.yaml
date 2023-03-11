@@ -1,14 +1,2 @@
-server:
-  port: 8083
-
-spring:
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
-    username: ${SPRING_DATASOURCE_USERNAME:root}
-    password: ${SPRING_DATASOURCE_PASSWORD:root}
-  liquibase:
-    change-log: classpath:db/changelog-master.yaml
-
 
 
