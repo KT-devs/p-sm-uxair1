@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/airline_db}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
+    driver-class-name: org.postgresql.Driver
   liquibase:
     change-log: classpath:db/changelog-master.yaml
