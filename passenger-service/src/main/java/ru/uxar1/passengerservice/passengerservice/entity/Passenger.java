@@ -4,7 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "passengers")
@@ -35,10 +35,9 @@ public class Passenger {
     private String lastName;
 
     @Column(name = "date_of_birth")
-    @Temporal(TemporalType.DATE)
     @NotEmpty(message = "Input date of birth as YYYY-MM-DD")
     @NonNull
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @Column(name = "user_id")
     @NotEmpty(message = "Input user id")
