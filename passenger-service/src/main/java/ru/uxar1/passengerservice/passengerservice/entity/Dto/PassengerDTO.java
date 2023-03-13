@@ -2,11 +2,9 @@ package ru.uxar1.passengerservice.passengerservice.entity.Dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -22,9 +20,8 @@ public class PassengerDTO {
     @NotEmpty(message = "Input last name")
     private String lastName;
 
-    @Temporal(TemporalType.DATE)
     @NotEmpty(message = "Input date of birth as YYYY-MM-DD")
-    private Date dateOfBirth;
+    private LocalDate dateOfBirth;
 
     @NotEmpty(message = "Input user id")
     private String userId;
@@ -32,6 +29,5 @@ public class PassengerDTO {
     @NotEmpty(message = "Input documents")
     private String documents;
 
-    @Column(name = "field")
     private String field;
 }
