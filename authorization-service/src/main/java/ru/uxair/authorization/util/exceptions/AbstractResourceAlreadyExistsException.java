@@ -1,4 +1,4 @@
-package ru.uxair.authorizationservice.util.exceptions;
+package ru.uxair.authorization.util.exceptions;
 
 public abstract class AbstractResourceAlreadyExistsException extends RuntimeException {
 

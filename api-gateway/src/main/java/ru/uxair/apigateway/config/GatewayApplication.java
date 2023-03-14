@@ -1,4 +1,4 @@
-package ru.uxair1.apigateway.config;
+package ru.uxair.apigateway.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

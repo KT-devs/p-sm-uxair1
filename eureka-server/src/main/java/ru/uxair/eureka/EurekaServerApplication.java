@@ -1,4 +1,4 @@
-package ru.uxar1.eurekaserver;
+package ru.uxair.eureka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

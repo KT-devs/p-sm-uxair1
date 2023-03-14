@@ -1,4 +1,4 @@
-package ru.uxair.authorizationservice.entity.Dto;
+package ru.uxair.authorization.entity.dto;
 
 public class ErrorResponseDto {
 
