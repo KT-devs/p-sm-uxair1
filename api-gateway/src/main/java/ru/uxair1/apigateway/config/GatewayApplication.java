@@ -26,7 +26,7 @@ public class GatewayApplication {
                         .uri("http://localhost:8083")) // Указан адрес микросервиса 3
                 .route(p -> p
                         .path("/eureka-server/**") // Добавлен маршрут для микросервиса 4
-                        .uri("http://localhost:8084")) // Указан адрес микросервиса 4
+                        .uri("http://localhost:8761")) // Указан адрес микросервиса 4
                 .route(p -> p
                         .path("/flight-service/**") // Добавлен маршрут для микросервиса 5
                         .uri("http://localhost:8085")) // Указан адрес микросервиса 5
