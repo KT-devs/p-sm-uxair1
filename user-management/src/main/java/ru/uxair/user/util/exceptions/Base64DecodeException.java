@@ -1,4 +1,4 @@
-package ru.uxair.apigateway.util.exceptions;
+package ru.uxair.user.util.exceptions;
 
 public class Base64DecodeException  extends RuntimeException{
 

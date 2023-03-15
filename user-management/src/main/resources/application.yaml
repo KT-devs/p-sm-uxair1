@@ -18,3 +18,9 @@ spring:
     hidden-method:
       filter:
         enabled: true
+
+  springdoc:
+    show-actuator: true
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
