@@ -1,6 +1,7 @@
 package ru.uxair.flight.service;
 
 
+import org.springframework.transaction.annotation.Transactional;
 import ru.uxair.flight.entity.Seat;
 import ru.uxair.flight.repository.SeatRepository;
 
@@ -39,19 +40,32 @@ public class SeatServiceImp implements SeatService {
         return null;
     } //todo когда появится aircraft доделать метод
 
+    @Transactional
     @Override
     public void createSeat(Seat seat) {
         seatRepository.save(seat);
     }
 
+    @Transactional
     @Override
-    public Seat findByFlightId(long flightId) {
+    public void updateSeat(Seat seat) {
+        seatRepository.saveAndFlush(seat);
+    }
+
+    @Transactional
+    @Override
+    public void deleteSeat(Long id) {
+        seatRepository.deleteById(id);
+    }
+
+    @Override
+    public Set <Seat> findByFlightId(long flightId) {
         seatRepository.findSeatByAircraft(flightId).getAircraft(); //todo когда появится aircraft доделать метод
         return null;
     }
 
     @Override
-    public Seat findByFlightIdAndCategoryId(long flightId, long categoryId) { //todo когда появится aircraft доделать метод
+    public Set <Seat> findByFlightIdAndCategoryId(long flightId, long categoryId) { //todo когда появится aircraft доделать метод
         return null;
     }
 }
