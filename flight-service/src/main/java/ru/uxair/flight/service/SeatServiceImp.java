@@ -59,13 +59,13 @@ public class SeatServiceImp implements SeatService {
     }
 
     @Override
-    public Set <Seat> findByFlightId(long flightId) {
+    public Set<Seat> findByFlightId(long flightId) {
         seatRepository.findSeatByAircraft(flightId).getAircraft(); //todo когда появится aircraft доделать метод
         return null;
     }
 
     @Override
-    public Set <Seat> findByFlightIdAndCategoryId(long flightId, long categoryId) { //todo когда появится aircraft доделать метод
+    public Set<Seat> findByFlightIdAndCategoryId(long flightId, long categoryId) { //todo когда появится aircraft доделать метод
         return null;
     }
 }

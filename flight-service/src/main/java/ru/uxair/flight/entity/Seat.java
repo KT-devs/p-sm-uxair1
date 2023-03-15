@@ -14,7 +14,7 @@ public class Seat {
     private Long id;
 
     @JoinColumn(name = "aircraft_Id")
-    private Long aircraft=2L;               //todo когда появится aircraft доделать метод
+    private Long aircraft = 2L;               //todo когда появится aircraft доделать метод
 
     @JoinColumn(name = "seatType")
     private Long seatType = 3L;      //todo когда появится seatType доделать метод

@@ -16,10 +16,14 @@ public interface SeatService {
     Set<Seat> getReservedSeat();
 
     void createSeat(Seat seat);
+
     void updateSeat(Seat seat);
+
     void deleteSeat(Long id);
-    Set <Seat> findByFlightId(long flightId);
-    Set <Seat> findByFlightIdAndCategoryId(long flightId, long categoryId);
+
+    Set<Seat> findByFlightId(long flightId);
+
+    Set<Seat> findByFlightIdAndCategoryId(long flightId, long categoryId);
 
 }
 
