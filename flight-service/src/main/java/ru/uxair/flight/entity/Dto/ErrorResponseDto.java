@@ -4,7 +4,7 @@ public class ErrorResponseDto {
 
     private String message;
 
-    public void ErrorResponseDTO(String message) {
+    public ErrorResponseDto(String message) {
         this.message = message;
     }
 
