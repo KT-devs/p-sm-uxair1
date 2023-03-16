@@ -1,6 +1,7 @@
 package ru.uxair.flight.service;
 
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.uxair.flight.entity.Seat;
 import ru.uxair.flight.repository.SeatRepository;
@@ -8,6 +9,8 @@ import ru.uxair.flight.repository.SeatRepository;
 import java.util.HashSet;
 import java.util.Set;
 
+@Service
+@Transactional(readOnly = true)
 public class SeatServiceImp implements SeatService {
     private final SeatRepository seatRepository;
 
