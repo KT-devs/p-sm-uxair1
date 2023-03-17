@@ -2,6 +2,7 @@ package ru.uxair.flight.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.uxair.flight.entity.Seat;
@@ -22,9 +23,10 @@ public interface SeatRestController {
     ResponseEntity<Set<Seat>> getSeatByFlightId(@PathVariable("flight_id") Long flight_id,
                                                 @PathVariable("category_id") Long category_id);
 
-    ResponseEntity<HttpStatus> saveNewSeat(@RequestBody Seat seat);
+    ResponseEntity<HttpStatus> saveNewSeat(@RequestBody Seat seat,
+                                           BindingResult bindingResult);
 
-    ResponseEntity<HttpStatus> updateSeat(@RequestBody Seat seat);
+    ResponseEntity<HttpStatus> updateSeat(@RequestBody Seat seat, BindingResult bindingResult);
 
     ResponseEntity<HttpStatus> deleteSeat(@PathVariable("id") Long id);
 }
