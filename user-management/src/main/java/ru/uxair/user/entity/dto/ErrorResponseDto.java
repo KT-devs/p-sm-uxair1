@@ -1,10 +1,10 @@
-package ru.uxair.apigateway.entity.Dto;
+package ru.uxair.user.entity.dto;
 
 public class ErrorResponseDto {
 
     private String message;
 
-    public ErrorResponseDTO(String message) {
+    public ErrorResponseDto(String message) {
         this.message = message;
     }
 
