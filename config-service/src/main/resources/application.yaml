@@ -1,18 +1,36 @@
+server:
+  port: 8888
+
 spring:
+
+  config:
+    import: "optional:configserver:"
+    activate:
+      on-profile:
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/KT-devs/p-sm-uxair1/tree/dev/config-service/src/main/ms_config_properties
+          search-paths:
+            - "{application}/{profile}"
+      discovery:
+        enabled: true
+
   datasource:
-    password: root
-    url: jdbc:postgresql://localhost:8082/airline_db?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
-    username: root
-  jpa:
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
-    hibernate:
-      ddl-auto: none
-    show-sql: true
-    properties:
-      hibernate:
-        format_sql: true
-  liquibase:
     driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${SPRING_DATASOURCE_USERNAME:root}
+    password: ${SPRING_DATASOURCE_PASSWORD:root}
   application:
     name: config-service
+  main:
+    web-application-type: reactive
+    env:
+      - name: LOGGING_LEVEL_ORG_SPRINGFRAMEWORK_WEB
+        value: INFO
+  eureka:
+    client:
+      serviceUrl:
+        defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
