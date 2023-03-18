@@ -11,7 +11,7 @@ import lombok.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ru.uxair.user.entity.dto.ErrorResponseDTO;
+import ru.uxair.user.entity.dto.ErrorResponseDto;
 import ru.uxair.user.entity.dto.PassengerDTO;
 
 import javax.validation.Valid;
@@ -27,14 +27,20 @@ public interface PassengerController {
      * Incorrect or non-existent field (code 500)
      */
     @Operation(summary = "Method for add passenger")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = PassengerDTO.class))}),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ErrorResponseDTO.class))})
-    })
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "Successful",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = PassengerDTO.class))}),
+//            @ApiResponse(responseCode = "400", description = "Bad request",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "403", description = "Unauthorized",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "404", description = "Not found",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))})
+//    })
     @PostMapping()
     ResponseEntity<HttpStatus> addNewPassenger(@Parameter(description = "PassengerDTO", required = true)
                                                @NonNull @RequestBody @Valid PassengerDTO passengerDTO);
@@ -48,17 +54,23 @@ public interface PassengerController {
      * Incorrect or non-existent id or field (code 500)
      */
     @Operation(summary = "Method for update passenger by id")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = PassengerDTO.class))}),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ErrorResponseDTO.class))})
-    })
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "Successful",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = PassengerDTO.class))}),
+//            @ApiResponse(responseCode = "400", description = "Bad request",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "403", description = "Unauthorized",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "404", description = "Not found",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))})
+//    })
     @PutMapping("/{id}")
     ResponseEntity<HttpStatus> updatePassengerById(
-            @NonNull @Parameter(description = "Unique identifier of passenger", required = true)
+            @Parameter(description = "Unique identifier of passenger", required = true)
             @PathVariable("id") long id,
             @NonNull @Parameter(description = "PassengerDTO", required = true)
             @RequestBody @Valid PassengerDTO passengerDTO);
@@ -71,15 +83,24 @@ public interface PassengerController {
      * Incorrect or non-existent id (code 500)
      */
     @Operation(summary = "Method for get passenger by id")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Successful",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = PassengerDTO.class))}),
-            @ApiResponse(responseCode = "500", description = "Internal Server Error",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ErrorResponseDTO.class))})
-    })
+//    @ApiResponses(value = {
+//            @ApiResponse(responseCode = "200", description = "Successful",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = PassengerDTO.class))}),
+//            @ApiResponse(responseCode = "400", description = "Bad request",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "403", description = "Unauthorized",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "404", description = "Not found",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))}),
+//            @ApiResponse(responseCode = "405", description = "Method not allowed",
+//                    content = {@Content(mediaType = "application/json",
+//                            schema = @Schema(implementation = ErrorResponseDto.class))})
+//    })
     @GetMapping("/{id}")
-    ResponseEntity<PassengerDTO> getPassengerById(@PathVariable("id") @NonNull
+    ResponseEntity<PassengerDTO> getPassengerById(@PathVariable("id")
                                                   @Parameter(description = "Unique identifier of passenger") long id);
 }

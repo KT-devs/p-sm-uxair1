@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Schema(description = "Error in case response")
-public class ErrorResponseDTO {
+public class ErrorResponseDto {
     @Schema(description = "Message about Error")
     private String message;
 }

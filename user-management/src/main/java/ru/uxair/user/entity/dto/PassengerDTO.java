@@ -7,13 +7,15 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 
 @Getter
 @Setter
 @Schema(description = "Information about passenger")
 public class PassengerDTO {
-    @JsonIgnore
+//    @JsonIgnore
+    @Positive
     private long id;
 
     @Schema(description = "Passenger first name")
