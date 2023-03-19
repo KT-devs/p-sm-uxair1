@@ -1,9 +1,10 @@
-package ru.uxair.flight.controller;
+package ru.uxair.flight.controller.impl;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.uxair.flight.controller.SeatRestController;
 import ru.uxair.flight.entity.Seat;
 import ru.uxair.flight.repository.SeatRepository;
 import ru.uxair.flight.service.SeatService;

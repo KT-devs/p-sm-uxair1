@@ -1,4 +1,4 @@
-package ru.uxair.flight.entity.Dto;
+package ru.uxair.flight.entity.dto;
 
 public class ErrorResponseDto {
 

@@ -1,10 +1,11 @@
-package ru.uxair.flight.service;
+package ru.uxair.flight.service.impl;
 
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.uxair.flight.entity.Seat;
 import ru.uxair.flight.repository.SeatRepository;
+import ru.uxair.flight.service.SeatService;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import ru.uxair.flight.entity.Dto.ErrorResponseDto;
+import ru.uxair.flight.entity.dto.ErrorResponseDto;
 
 
 public abstract class AbstractExceptionHandler {
