@@ -1,10 +1,10 @@
-package ru.uxair.apigateway.util.handlers;
+package ru.uxair.user.util.handlers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import ru.uxair.apigateway.entity.Dto.ErrorResponseDto;
+import ru.uxair.user.entity.dto.ErrorResponseDto;
 
 public abstract class AbstractExceptionHandler {
 

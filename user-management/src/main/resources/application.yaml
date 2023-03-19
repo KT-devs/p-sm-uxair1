@@ -1,0 +1,27 @@
+# Temporary settings. ToDo: To change after readiness config-service
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/airline_db
+    username: postgres
+    password: root
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL9Dialect
+        show_sql: true
+        hbm2ddl:
+          auto: update
+        current_session_context_class: thread
+
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
+
+  springdoc:
+    show-actuator: true
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
