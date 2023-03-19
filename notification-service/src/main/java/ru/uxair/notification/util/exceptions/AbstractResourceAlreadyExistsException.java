@@ -1,4 +1,4 @@
-package ru.uxair.flight;
+package ru.uxair.notification;
 
 public abstract class AbstractResourceAlreadyExistsException extends RuntimeException {
 
