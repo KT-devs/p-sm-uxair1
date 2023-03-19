@@ -3,6 +3,9 @@ package ru.uxair.user.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -10,31 +13,36 @@ import java.time.LocalDateTime;
 @Table(name = "documents")
 @Data
 @ToString(exclude = {"id", "createdAt", "updatedAt"})
-@EqualsAndHashCode()
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @RequiredArgsConstructor
 public class Document {
     @Id
     @Column(name = "id")
+    @Positive
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "passenger") // Temporary as plug
 //    @OneToOne()
 //    @JoinColumn(name = "passenger_id", referencedColumnName = "id")
+    @NotEmpty(message = "Input passenger")
     @NonNull
     private String passenger; // Temporary type String as plug, ToDo: Passenger type
 
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "Select document type")
     @NonNull
     private DocumentType type;
 
     @Column(name = "number")
+    @NotNull(message = "Input document number")
     @NonNull
-    private long number;
+    private Long number;
 
     @Column(name = "expiry_date")
+    @NotNull(message = "Input document expire date DD.MM.YYYY")
     @NonNull
     private LocalDate expiryDate;
 
@@ -45,6 +53,7 @@ public class Document {
     private LocalDateTime updatedAt;
 
     @Column(name = "is_default")
+    @NotNull(message = "Document is default?")
     @NonNull
     private Boolean isDefault;
 }
