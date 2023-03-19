@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.uxair.user.entity.Document;
 import ru.uxair.user.repository.DocumentRepository;
+import ru.uxair.user.util.exceptions.ResourceNotFoundException;
 
 import java.time.LocalDateTime;
 
@@ -24,7 +25,7 @@ public class DocumentServiceImpl implements DocumentService {
 
     @Transactional
     @Override
-    public void updateDocument(long id, Document document) {
+    public void updateDocument(Long id, Document document) {
         if (documentRepository.existsById(id)) {
             document.setId(id);
             document.setPassenger(document.getPassenger());
@@ -35,11 +36,13 @@ public class DocumentServiceImpl implements DocumentService {
             document.setUpdatedAt(LocalDateTime.now());
             document.setIsDefault(document.getIsDefault());
             documentRepository.save(document);
+        }else {
+            throw new ResourceNotFoundException("=" + id);
         }
     }
 
     @Override
-    public Document getDocument(long id) {
-        return documentRepository.findById(id).orElse(null);
+    public Document getDocument(Long id) {
+        return documentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("= " + id));
     }
 }
