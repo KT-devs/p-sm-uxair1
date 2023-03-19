@@ -1,4 +1,4 @@
-package ru.uxair.flight.util.exceptions;
+package ru.uxair.notification.util.exceptions;
 
 public abstract class AbstractResourceNotFoundException extends  RuntimeException{
 
