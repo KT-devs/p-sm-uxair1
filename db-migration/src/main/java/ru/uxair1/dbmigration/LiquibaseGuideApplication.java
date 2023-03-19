@@ -11,9 +11,5 @@ public class LiquibaseGuideApplication {
     public static void main(String[] args) {
         SpringApplication.run(LiquibaseGuideApplication.class, args);
     }
-    @Bean
-    public ReactiveWebServerFactory reactiveWebServerFactory() {
-        return new TomcatReactiveWebServerFactory();
 
-    }
 }
