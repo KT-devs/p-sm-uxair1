@@ -1,4 +1,4 @@
-package ru.uxair.apigateway.util.exceptions;
+package ru.uxair.flight.util.exceptions;
 
 public final class AliasConstants {
 
