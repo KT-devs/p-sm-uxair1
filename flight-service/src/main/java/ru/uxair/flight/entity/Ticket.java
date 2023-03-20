@@ -25,6 +25,7 @@ public class Ticket {
     @NotEmpty(message = "Input booking")
     private String booking; // Temporary type String as plug, ToDo: Booking service and table links (joins)
     @Column(name = "seatCategory")
+    @Enumerated(EnumType.STRING)
     @NotEmpty(message = "Input category")
     private SeatCategory seatCategory;
     @Column(name = "inFlightServices")
