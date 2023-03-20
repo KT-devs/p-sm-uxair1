@@ -4,13 +4,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * Here is the description of the entity - Document.
+ * Here is the description of the entity - User and also his attributes.
  * This service includes: entity, repository, service, controller etc.
  */
 @SpringBootApplication
-public class DocumentServiceApplication {
+public class UserServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DocumentServiceApplication.class, args);
+        SpringApplication.run(UserServiceApplication.class, args);
     }
 }

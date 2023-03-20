@@ -7,6 +7,6 @@ public class ResourceNotFoundException extends AbstractResourceNotFoundException
 
     @Override
     protected String getResourceAlias() {
-        return "Document";
+        return "Object";
     }
 }
