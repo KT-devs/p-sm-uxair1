@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * This service includes: entity, repository, service and controller
  */
 @SpringBootApplication
-public class TicketServiceApplication {
+public class FlightServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TicketServiceApplication.class, args);
+        SpringApplication.run(FlightServiceApplication.class, args);
     }
 }
