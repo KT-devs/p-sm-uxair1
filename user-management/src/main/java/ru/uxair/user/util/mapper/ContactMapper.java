@@ -11,8 +11,8 @@ import ru.uxair.user.entity.dto.ContactDto;
 public class ContactMapper {
     private final ModelMapper modelMapper;
 
-    public Contact convertToContact(ContactDto documentDto) {
-        return modelMapper.map(documentDto, Contact.class);
+    public Contact convertToContact(ContactDto contactDto) {
+        return modelMapper.map(contactDto, Contact.class);
     }
 
     public ContactDto convertToContactDTO(Contact contact) {
