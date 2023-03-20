@@ -1,6 +1,6 @@
+# Temporary settings. ToDo: To change after readiness config-service
 server:
   port: ${PORT:8085}
-
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
@@ -11,3 +11,5 @@ spring:
     name: flight
   main:
     web-application-type: reactive
+  profiles:
+    active: local

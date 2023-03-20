@@ -7,7 +7,7 @@ import ru.uxair.flight.entity.Seat;
 public interface SeatRepository extends JpaRepository<Seat, Long> {
     Seat findSeatBySeatNumber(String seatNumber);
 
-    Seat findSeatBySeatTypeCategory(long category);
+    Seat findSeatByTypeCategory(long category);
 
     Seat findSeatByAircraft(long flightId);
 }
