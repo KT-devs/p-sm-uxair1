@@ -7,6 +7,8 @@ import ru.uxair.user.entity.Passenger;
 import ru.uxair.user.repository.PassengerRepository;
 import ru.uxair.user.util.exceptions.ResourceNotFoundException;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @AllArgsConstructor
@@ -40,5 +42,16 @@ public class PassengerServiceImpl implements PassengerService {
     @Override
     public Passenger getPassenger(Long id) {
         return passengerRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("= " + id));
+    }
+
+    @Override
+    public List<Passenger> getAllPassengers() {
+        return passengerRepository.findAll();
+    }
+
+    @Transactional
+    @Override
+    public void deletePassenger(Long id) {
+        passengerRepository.deleteById(id);
     }
 }

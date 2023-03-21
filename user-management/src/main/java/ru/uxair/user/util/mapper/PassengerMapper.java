@@ -17,5 +17,5 @@ public class PassengerMapper {
 
     public PassengerDTO convertToPassengerDTO(Passenger passenger) {
         return modelMapper.map(passenger, PassengerDTO.class);
-    }
+    }z
 }
