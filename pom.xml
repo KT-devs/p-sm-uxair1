@@ -19,7 +19,6 @@
     <module>user-management</module>
     <module>notification-service</module>
     <module>db-migration</module>
-    <module>passenger-service</module>
 
   </modules>
 
