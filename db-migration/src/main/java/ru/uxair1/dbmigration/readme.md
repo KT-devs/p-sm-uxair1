@@ -8,19 +8,19 @@ liqiibase
 -         changeSet:
             id: create-test
             author: Ivan 
-        changes:
-        - createTable:
-        tableName: test
-        columns:
-        - column:
-        name: id
-        type: bigint
-        autoIncrement: true
-        constraints:
-        primaryKey: true
-        nullable: false
-        - column:
-        name: name
-        type: varchar(200)
-        constraints:
-        nullable: false
+          changes:
+            - createTable:
+            tableName: test
+          columns:
+            - column:
+              name: id
+              type: bigint
+              autoIncrement: true
+              constraints:
+              primaryKey: true
+              nullable: false
+            - column:
+              name: name
+              type: varchar(200)
+              constraints:
+              nullable: false
