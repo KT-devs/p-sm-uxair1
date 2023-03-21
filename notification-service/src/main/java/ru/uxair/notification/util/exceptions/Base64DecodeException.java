@@ -1,4 +1,4 @@
-package ru.uxair.flight;
+package ru.uxair.notification.util.exceptions;
 
 public class Base64DecodeException  extends RuntimeException{
 

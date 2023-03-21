@@ -1,4 +1,4 @@
-package ru.uxair.flight;
+package ru.uxair.notification.util.handlers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

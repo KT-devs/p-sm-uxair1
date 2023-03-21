@@ -1,4 +1,4 @@
-package ru.uxair.flight;
+package ru.uxair.notification.entity.dto;
 
 public class ErrorResponseDto {
 
