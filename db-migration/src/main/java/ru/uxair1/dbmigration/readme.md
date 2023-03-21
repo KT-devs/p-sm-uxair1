@@ -5,9 +5,9 @@ liqiibase
     
     Образец скрипта 
         databaseChangeLog:
--       changeSet:
-        id: create-test
-        author: Ivan 
+-         changeSet:
+            id: create-test
+            author: Ivan 
         changes:
         - createTable:
         tableName: test

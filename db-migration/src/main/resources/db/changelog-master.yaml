@@ -1,2 +1,5 @@
 databaseChangeLog:
-
+  - changeSet:
+      id: 1.0
+      author: Ivan
+      tag: create-table
