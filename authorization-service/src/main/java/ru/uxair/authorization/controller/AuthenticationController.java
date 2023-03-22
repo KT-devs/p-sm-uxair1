@@ -10,23 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 import ru.uxair.authorization.controller.security.AuthenticationRequest;
 import ru.uxair.authorization.controller.security.AuthenticationResponse;
 import ru.uxair.authorization.controller.security.RegisterRequest;
-import ru.uxair.authorization.service.AuthenticationService;
+import ru.uxair.authorization.service.impl.AuthenticationServiceImpl;
 
 @RestController
-@RequestMapping("/api/v1/auth")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    private final AuthenticationService authenticationService;
+    private final AuthenticationServiceImpl authenticationServiceImpl;
 
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register (@RequestBody RegisterRequest request){
-        return ResponseEntity.ok(authenticationService.register(request));
+        return ResponseEntity.ok(authenticationServiceImpl.register(request));
     }
 
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate (@RequestBody AuthenticationRequest request){
-        return ResponseEntity.ok(authenticationService.authenticate(request));
+        return ResponseEntity.ok(authenticationServiceImpl.authenticate(request));
     }
 
 }

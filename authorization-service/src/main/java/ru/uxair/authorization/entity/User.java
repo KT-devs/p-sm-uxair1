@@ -1,6 +1,5 @@
 package ru.uxair.authorization.entity;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
@@ -26,16 +26,28 @@ public class User implements UserDetails {
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column (name = "firstname")
+    @NotNull
     private String firstname;
 
+    @Column (name = "lastname")
+    @NotNull
     private String lastname;
+    @Column (name = "email", unique = true)
+    @NotNull
     private String email;
 
+    @Column (name = "password")
+    @NotNull
     private String password;
 
-    private Date dateRegistration;
+    @Column (name = "dateRegistration")
+    @NotNull
+    private Date dateRegistration; //YYYY-MM-DD
 
     @Enumerated (EnumType.STRING)
+    @Column (name = "role")
+    @NotNull
     private Role role;
 
     @Override
