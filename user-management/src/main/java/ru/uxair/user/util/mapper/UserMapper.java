@@ -14,8 +14,4 @@ public class UserMapper {
     public User convertToUser(UserDto userDto) {
         return modelMapper.map(userDto, User.class);
     }
-
-    public UserDto convertToUserDto(User user) {
-        return modelMapper.map(user, UserDto.class);
-    }
 }

@@ -9,6 +9,8 @@ import ru.uxair.user.entity.dto.PassengerDTO;
 import ru.uxair.user.service.PassengerService;
 import ru.uxair.user.util.mapper.PassengerMapper;
 
+import java.util.List;
+
 @RestController
 @AllArgsConstructor
 public class PassengerControllerImpl implements PassengerController {
@@ -30,5 +32,16 @@ public class PassengerControllerImpl implements PassengerController {
     @Override
     public ResponseEntity<PassengerDTO> getPassengerById(@NonNull Long id) {
         return ResponseEntity.ok(passengerMapper.convertToPassengerDTO(passengerService.getPassenger(id)));
+    }
+
+    @Override
+    public ResponseEntity<List<PassengerDTO>> getAllPassengers() {
+        return ResponseEntity.ok(passengerMapper.convertToListPassengerDTO(passengerService.getAllPassengers()));
+    }
+
+    @Override
+    public ResponseEntity<HttpStatus> deletePassengerById(@NonNull Long id) {
+        passengerService.deletePassenger(id);
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 }

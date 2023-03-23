@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import ru.uxair.user.entity.Passenger;
 import ru.uxair.user.entity.dto.PassengerDTO;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Component
 @AllArgsConstructor
 public class PassengerMapper {
@@ -17,5 +20,9 @@ public class PassengerMapper {
 
     public PassengerDTO convertToPassengerDTO(Passenger passenger) {
         return modelMapper.map(passenger, PassengerDTO.class);
-    }z
+    }
+
+    public List<PassengerDTO> convertToListPassengerDTO(List<Passenger> passengerList) {
+        return passengerList.stream().map(this::convertToPassengerDTO).collect(Collectors.toList());
+    }
 }
