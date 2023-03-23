@@ -6,13 +6,12 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import org.springframework.stereotype.Service;
-import ru.uxair.authorization.controller.security.AuthenticationRequest;
-import ru.uxair.authorization.controller.security.AuthenticationResponse;
-import ru.uxair.authorization.controller.security.RegisterRequest;
+import ru.uxair.authorization.entity.dto.AuthenticationRequestDto;
+import ru.uxair.authorization.entity.dto.AuthenticationResponseDto;
+import ru.uxair.authorization.entity.dto.RegisterRequestDto;
 import ru.uxair.authorization.entity.User;
 import ru.uxair.authorization.repository.UserRepository;
 import ru.uxair.authorization.service.AuthenticationService;
-import ru.uxair.authorization.service.impl.JwtServiceImpl;
 
 @Service
 @RequiredArgsConstructor
@@ -24,34 +23,34 @@ public class AuthenticationServiceImpl implements AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     @Override
-    public AuthenticationResponse register(RegisterRequest request) {
+    public AuthenticationResponseDto register(RegisterRequestDto requestDto) {
         var user = User.builder()
-                .firstname(request.getFirstname())
-                .lastname(request.getLastname())
-                .email(request.getEmail())
-                .dateRegistration(request.getDateRegistration())
-                .password(passwordEncoder.encode(request.getPassword()))
-                .role(request.getRole())
+                .firstname(requestDto.getFirstname())
+                .lastname(requestDto.getLastname())
+                .email(requestDto.getEmail())
+                .dateRegistration(requestDto.getDateRegistration())
+                .password(passwordEncoder.encode(requestDto.getPassword()))
+                .role(requestDto.getRole())
                 .build();
         userRepository.save(user);
         var jwtToken = jwtServiceImpl.generateToken(user);
-        return AuthenticationResponse.builder()
+        return AuthenticationResponseDto.builder()
                 .token(jwtToken)
                 .build();
     }
 
     @Override
-    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+    public AuthenticationResponseDto authenticate(AuthenticationRequestDto requestDto) {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
-                        request.getEmail(),
-                        request.getPassword()
+                        requestDto.getEmail(),
+                        requestDto.getPassword()
                 )
         );
-        var user = userRepository.findByEmail(request.getEmail())
+        var user = userRepository.findByEmail(requestDto.getEmail())
                 .orElseThrow();
         var jwtToken = jwtServiceImpl.generateToken(user);
-        return AuthenticationResponse.builder()
+        return AuthenticationResponseDto.builder()
                 .token(jwtToken)
                 .build();
     }
