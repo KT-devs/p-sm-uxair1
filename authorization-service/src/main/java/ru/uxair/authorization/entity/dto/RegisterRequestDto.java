@@ -1,19 +1,13 @@
-package ru.uxair.authorization.controller.security;
+package ru.uxair.authorization.entity.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import ru.uxair.authorization.entity.Role;
 
 import java.util.Date;
 
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
-public class RegisterRequest {
+@Value
+public class RegisterRequestDto {
 
     private String firstname;
     private String lastname;

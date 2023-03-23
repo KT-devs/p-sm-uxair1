@@ -1,15 +1,15 @@
 package ru.uxair.authorization.service;
 
 
-import ru.uxair.authorization.controller.security.AuthenticationRequest;
-import ru.uxair.authorization.controller.security.AuthenticationResponse;
-import ru.uxair.authorization.controller.security.RegisterRequest;
+import ru.uxair.authorization.entity.dto.AuthenticationRequestDto;
+import ru.uxair.authorization.entity.dto.AuthenticationResponseDto;
+import ru.uxair.authorization.entity.dto.RegisterRequestDto;
 
 
 public interface AuthenticationService {
 
-    AuthenticationResponse register(RegisterRequest request);
+    AuthenticationResponseDto register(RegisterRequestDto request);
 
-    AuthenticationResponse authenticate(AuthenticationRequest request);
+    AuthenticationResponseDto authenticate(AuthenticationRequestDto request);
 
 }

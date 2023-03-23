@@ -1,32 +1,60 @@
 package ru.uxair.authorization.controller;
 
-
-import lombok.RequiredArgsConstructor;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import ru.uxair.authorization.controller.security.AuthenticationRequest;
-import ru.uxair.authorization.controller.security.AuthenticationResponse;
-import ru.uxair.authorization.controller.security.RegisterRequest;
-import ru.uxair.authorization.service.impl.AuthenticationServiceImpl;
+import ru.uxair.authorization.entity.dto.AuthenticationRequestDto;
+import ru.uxair.authorization.entity.dto.AuthenticationResponseDto;
+import ru.uxair.authorization.entity.dto.ErrorResponseDto;
+import ru.uxair.authorization.entity.dto.RegisterRequestDto;
 
-@RestController
-@RequestMapping("/api/v1")
-@RequiredArgsConstructor
-public class AuthenticationController {
+@Tag (name = "Authenticate controller")
+@RequestMapping ("/api/v1")
+public interface AuthenticationController {
 
-    private final AuthenticationServiceImpl authenticationServiceImpl;
 
+    /**
+     * POST: method for registering new users
+     *
+     * @param request Dto
+     * @return ResponseEntity<AuthenticationResponseDto>
+     */
+    @Operation(summary = "Get access token on registration")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Page successfully returned",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AuthenticationResponseDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Page not found",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register (@RequestBody RegisterRequest request){
-        return ResponseEntity.ok(authenticationServiceImpl.register(request));
-    }
+    ResponseEntity<AuthenticationResponseDto> register (@RequestBody RegisterRequestDto request);
 
+
+    /**
+     * POST: method for authenticate existing users
+     *
+     * @param request Dto
+     * @return ResponseEntity<AuthenticationResponseDto>
+     */
+    @Operation(summary = "Get access token on authentication")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Page successfully returned",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = AuthenticationResponseDto.class))}),
+            @ApiResponse(responseCode = "400", description = "Page not found",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorResponseDto.class))})
+    })
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate (@RequestBody AuthenticationRequest request){
-        return ResponseEntity.ok(authenticationServiceImpl.authenticate(request));
-    }
+    ResponseEntity<AuthenticationResponseDto> authenticate (@RequestBody AuthenticationRequestDto request);
 
 }
