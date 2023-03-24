@@ -41,10 +41,6 @@ public class User implements UserDetails {
     @NotNull
     private String password;
 
-    @Column (name = "dateRegistration")
-    @NotNull
-    private Date dateRegistration; //YYYY-MM-DD
-
     @Enumerated (EnumType.STRING)
     @Column (name = "role")
     @NotNull

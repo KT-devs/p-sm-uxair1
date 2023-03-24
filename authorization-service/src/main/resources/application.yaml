@@ -1,9 +1,12 @@
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
 
 spring:
+  liquibase:
+    enabled: true
   application:
     name: authorization-service
   profiles:
@@ -15,7 +18,7 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     show-sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
