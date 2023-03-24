@@ -28,6 +28,7 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .firstname(requestDto.getFirstname())
                 .lastname(requestDto.getLastname())
                 .email(requestDto.getEmail())
+                .dateRegistration(requestDto.getDateRegistration())
                 .password(passwordEncoder.encode(requestDto.getPassword()))
                 .role(requestDto.getRole())
                 .build();
