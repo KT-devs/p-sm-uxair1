@@ -1,15 +1,16 @@
 package ru.uxair.flight.entity;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@Getter
+@RequiredArgsConstructor
 public enum SeatCategory {
-    FIRST("Первый класс"), BUSINESS("Бизнес класс"), ECONOMY("Эконом класс");
-    private final String name;
+    FIRST("First"),
+    BUSINESS("Business"),
+    ECONOMY("Economy");
 
-    SeatCategory(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
+    private final String category;
 }
+
 
