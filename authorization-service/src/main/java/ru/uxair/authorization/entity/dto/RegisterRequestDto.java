@@ -12,7 +12,6 @@ public class RegisterRequestDto {
     private String firstname;
     private String lastname;
     private String email;
-    private Date dateRegistration; //YYYY-MM-DD
     private String password;
     private Role role;
 
