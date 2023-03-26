@@ -7,6 +7,6 @@ public class ResourceAlreadyExistsException extends AbstractResourceAlreadyExist
 
     @Override
     protected String getResourceAlias() {
-        return "Passenger";
+        return "Object";
     }
 }
