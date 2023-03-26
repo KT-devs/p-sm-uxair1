@@ -1,0 +1,21 @@
+server:
+  port: 8888
+  activate:
+    on-profile: local
+spring:
+
+  config:
+    import: "optional:configserver:"
+    activate:
+      on-profile: local
+  cloud:
+    config:
+      enabled: true
+      server:
+        git:
+          uri: https://github.com/KT-devs/p-sm-uxair1/tree/dev/config-service/src/main/ms_config_properties
+          search-paths:
+            - "{application}/{profile}"
+      discovery:
+        enabled: true
+

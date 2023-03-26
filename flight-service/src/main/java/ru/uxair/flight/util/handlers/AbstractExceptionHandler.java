@@ -1,4 +1,4 @@
-package ru.uxair.apigateway.util.handlers;
+package ru.uxair.flight.util.handlers;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
