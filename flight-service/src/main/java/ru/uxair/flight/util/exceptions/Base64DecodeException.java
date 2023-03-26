@@ -1,7 +1,6 @@
 package ru.uxair.flight.util.exceptions;
 
 public class Base64DecodeException  extends RuntimeException{
-
     private final String message;
 
     public Base64DecodeException(final String argument) {
