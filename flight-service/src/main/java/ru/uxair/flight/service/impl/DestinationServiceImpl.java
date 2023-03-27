@@ -1,6 +1,7 @@
 package ru.uxair.flight.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ru.uxair.flight.entity.Destination;
 import ru.uxair.flight.repository.DestinationRepository;
@@ -24,8 +25,11 @@ public class DestinationServiceImpl implements DestinationService {
 
     @Override
     public List<Destination> findDestinationByCity(String city) {
-        if ( !destinationRepository.findByCityContainingIgnoreCase(city).isEmpty()) {
-            return destinationRepository.findByCountryNameContainingIgnoreCase(city);
+        List <Destination> getByCity=destinationRepository.findByCityContainingIgnoreCase(city,
+                Sort.by("airportName"));
+
+        if ( !getByCity.isEmpty()) {
+            return  getByCity;
         }else {
             throw new DestinationNotFoundException();
         }
@@ -34,8 +38,11 @@ public class DestinationServiceImpl implements DestinationService {
     @Override
     public List<Destination> findDestinationByCountryName(String countryName) {
 
-        if ( !destinationRepository.findByCountryNameContainingIgnoreCase(countryName).isEmpty()) {
-            return destinationRepository.findByCountryNameContainingIgnoreCase(countryName);
+        List<Destination> getByCountryName=destinationRepository.findByCountryNameContainingIgnoreCase(countryName,
+                Sort.by("city").and(Sort.by("airportName")));
+
+        if ( !getByCountryName.isEmpty()) {
+            return getByCountryName;
         }else {
             throw new DestinationNotFoundException();
         }
