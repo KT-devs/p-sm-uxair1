@@ -6,6 +6,6 @@ import ru.uxair.flight.entity.Destination;
 import java.util.List;
 
 public interface DestinationRepository extends JpaRepository <Destination,String> {
-    List <Destination> findByCity(String city);
-    List <Destination> findByCountryName(String countryName);
+    List <Destination> findByCityContainingIgnoreCase(String city);
+    List <Destination> findByCountryNameContainingIgnoreCase(String countryName);
 }

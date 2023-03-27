@@ -37,15 +37,24 @@ public class DestinationControllerImpl implements DestinationController {
                 : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-           @Override
+    @Override
     @GetMapping("/city/{city}")
     public ResponseEntity < List<DestinationDto>> getDestinationByCity(@PathVariable String city) {
-        List <DestinationDto> getByCity=  service.findDestinationByCity(city).
+
+
+        List<DestinationDto> getByCity = service.findDestinationByCity(city).
                 stream().
                 map(mapper::convertToDestinationDto)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(getByCity,HttpStatus.OK);
+        if (!getByCity.isEmpty()) {
+            return new ResponseEntity<>(getByCity, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
+
+
+
 
     @Override
     @GetMapping("/countryName/{countryName}")
@@ -54,14 +63,18 @@ public class DestinationControllerImpl implements DestinationController {
                 stream().
                 map(mapper::convertToDestinationDto)
                 .collect(Collectors.toList());
-        return new ResponseEntity<>(getByCountryName,HttpStatus.OK);
+        if (!getByCountryName.isEmpty()) {
+            return new ResponseEntity<>(getByCountryName, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @Override
     @PostMapping
     public ResponseEntity<HttpStatus> createDestination(DestinationDto destinationDto) {
         service.saveDestination(mapper.convertToDestination(destinationDto));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
