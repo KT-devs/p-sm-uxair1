@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import ru.uxair.user.entity.DocumentType;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -29,7 +28,7 @@ public class DocumentDto {
     @Schema(description = "Document type")
     @NotNull(message = "Select document type")
     @Enumerated(EnumType.STRING)
-    private DocumentType type;
+    private String type; // ToDo DocumentType
 
     @Schema(description = "Document number")
     @NotNull(message = "Input document number")
