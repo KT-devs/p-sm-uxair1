@@ -39,3 +39,47 @@ databaseChangeLog:
                   type: varchar(200)
                   constraints:
                     nullable: false
+  - changeSet:
+      id: 1022.2
+      author: Pati
+      changes:
+        - insert:
+            tableName: usr
+            columns:
+              - column:
+                  name: first_name
+                  value: Admin
+              - column:
+                  name: last_name
+                  value: Adminov
+              - column:
+                  name: email
+                  value: admin@mail.ru
+              - column:
+                  name: role
+                  value: ADMIN
+              - column:
+                  name: password
+                  value: $2a$12$66U.cZM0tYkZckCf4PnMH.uABwwwzGV07YC4ANW72LPrCDHpmZQl6
+  - changeSet:
+      id: 1022.3
+      author: Pati
+      changes:
+        - insert:
+            tableName: usr
+            columns:
+              - column:
+                  name: first_name
+                  value: User
+              - column:
+                  name: last_name
+                  value: Userov
+              - column:
+                  name: email
+                  value: user@mail.ru
+              - column:
+                  name: role
+                  value: CUSTOMER
+              - column:
+                  name: password
+                  value: $2a$12$66U.cZM0tYkZckCf4PnMH.uABwwwzGV07YC4ANW72LPrCDHpmZQl6
