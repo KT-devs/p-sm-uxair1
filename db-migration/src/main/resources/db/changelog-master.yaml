@@ -3,3 +3,8 @@ databaseChangeLog:
       id: 1.0
       author: Ivan
       tag: create-table
+
+
+  - include:
+      file: changeset/20232803-authorization_service-users_table.yaml
+      relativeToChangelogFile: true
