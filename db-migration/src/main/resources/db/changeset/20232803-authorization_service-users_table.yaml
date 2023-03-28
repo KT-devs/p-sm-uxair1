@@ -1,0 +1,85 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1022
+      author: Pati
+      changes:
+        - createTable:
+            tableName: usr
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: last_name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+                    unique: true
+              - column:
+                  name: role
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+  - changeSet:
+      id: 1022.2
+      author: Pati
+      changes:
+        - insert:
+            tableName: usr
+            columns:
+              - column:
+                  name: first_name
+                  value: Admin
+              - column:
+                  name: last_name
+                  value: Adminov
+              - column:
+                  name: email
+                  value: admin@mail.ru
+              - column:
+                  name: role
+                  value: ADMIN
+              - column:
+                  name: password
+                  value: $2a$12$66U.cZM0tYkZckCf4PnMH.uABwwwzGV07YC4ANW72LPrCDHpmZQl6
+  - changeSet:
+      id: 1022.3
+      author: Pati
+      changes:
+        - insert:
+            tableName: usr
+            columns:
+              - column:
+                  name: first_name
+                  value: User
+              - column:
+                  name: last_name
+                  value: Userov
+              - column:
+                  name: email
+                  value: user@mail.ru
+              - column:
+                  name: role
+                  value: CUSTOMER
+              - column:
+                  name: password
+                  value: $2a$12$66U.cZM0tYkZckCf4PnMH.uABwwwzGV07YC4ANW72LPrCDHpmZQl6
