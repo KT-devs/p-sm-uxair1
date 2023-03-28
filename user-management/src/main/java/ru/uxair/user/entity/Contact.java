@@ -25,7 +25,7 @@ public class Contact {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Select contact type")
     @NonNull
-    private ContactType type;
+    private String type; // ToDo ContactType
 
     @Column(name = "value")
     @NotEmpty(message = "Input your contact")
