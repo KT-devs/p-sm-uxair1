@@ -34,7 +34,7 @@ public class Document {
     @Enumerated(EnumType.STRING)
     @NotNull(message = "Select document type")
     @NonNull
-    private String type; // ToDo DocumentType
+    private DocumentType type;
 
     @Column(name = "number")
     @NotNull(message = "Input document number")
