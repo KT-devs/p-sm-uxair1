@@ -8,6 +8,7 @@ import ru.uxair.flight.entity.dto.DestinationDto;
 import ru.uxair.flight.service.DestinationService;
 import ru.uxair.flight.util.mapper.DestinationMapper;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,7 +31,7 @@ public class DestinationControllerImpl implements DestinationController {
 
     @Override
     @GetMapping("/{id}")
-    public ResponseEntity<DestinationDto> getDestinationById( @PathVariable String id) {
+    public ResponseEntity<DestinationDto> getDestinationById( @PathVariable  String id) {
         DestinationDto destinationById = mapper.convertToDestinationDto(service.findDestinationById(id));
         return destinationById != null
                 ? new ResponseEntity<>(destinationById, HttpStatus.OK)
@@ -72,14 +73,14 @@ public class DestinationControllerImpl implements DestinationController {
 
     @Override
     @PostMapping
-    public ResponseEntity<HttpStatus> createDestination(DestinationDto destinationDto) {
+    public ResponseEntity<HttpStatus> createDestination(@RequestBody @Valid DestinationDto destinationDto) {
         service.saveDestination(mapper.convertToDestination(destinationDto));
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @Override
     @PutMapping
-    public ResponseEntity<HttpStatus> updateDestination(DestinationDto destinationDto) {
+    public ResponseEntity<HttpStatus> updateDestination(@RequestBody @Valid DestinationDto destinationDto) {
         service.saveDestination(mapper.convertToDestination(destinationDto));
         return new ResponseEntity<>(HttpStatus.OK);
     }

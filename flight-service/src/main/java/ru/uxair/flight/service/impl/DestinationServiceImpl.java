@@ -20,7 +20,7 @@ public class DestinationServiceImpl implements DestinationService {
 
     @Override
     public Destination findDestinationById(String id) {
-        return destinationRepository.findById(id).orElseThrow(DestinationNotFoundException::new);
+        return destinationRepository.findById(id).orElseThrow();
     }
 
     @Override
