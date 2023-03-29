@@ -1,0 +1,8 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1.0
+      author: Ivan
+      tag: create-table
+
+  - include:
+      file: db/changeset/20230329-contact-add-table.yaml

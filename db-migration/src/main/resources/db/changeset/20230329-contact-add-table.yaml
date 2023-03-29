@@ -1,0 +1,31 @@
+dataBaseChangeLog:
+  - changeSet:
+      id: UXAR1-1018
+      author: Evgeny
+      changes:
+        - createTable:
+            tableName: contacts
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar
+                  constrains:
+                    nullable: false
+              - column:
+                  name: value
+                  type: varchar
+                  constrains:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: preferred_contact
+                  type: varchar
+                  constrains:
+                    nullable: false
