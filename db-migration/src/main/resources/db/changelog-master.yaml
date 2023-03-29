@@ -3,3 +3,8 @@ databaseChangeLog:
       id: 1.0
       author: Ivan
       tag: create-table
+
+  - include:
+      file: db/changeset/20230329-document-add-table.yaml
+  - include:
+      file: db/changeset/20230329-document-add-table.yaml
