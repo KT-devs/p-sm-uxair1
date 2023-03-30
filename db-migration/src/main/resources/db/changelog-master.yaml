@@ -3,3 +3,5 @@ databaseChangeLog:
       id: 1.0
       author: Ivan
       tag: create-table
+  - include:
+      file: db/changeset/20230323-ticket-add-table.yaml
