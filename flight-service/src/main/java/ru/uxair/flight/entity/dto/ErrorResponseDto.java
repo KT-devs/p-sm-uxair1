@@ -1,10 +1,10 @@
-package ru.uxair.flight.entity.dto;
+package ru.uxair.flight.entity.Dto;
 
 public class ErrorResponseDto {
 
     private String message;
 
-    public ErrorResponseDto(String message) {
+    public ErrorResponseDTO(String message) {
         this.message = message;
     }
 
