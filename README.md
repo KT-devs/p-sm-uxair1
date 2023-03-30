@@ -211,3 +211,25 @@ SQL, XML, JSON или YAML.
 [Ссылка 1](https://habr.com/ru/post/460377/)
 
 [Ссылка 2](https://habr.com/ru/post/460907/)
+
+
+
+### Аутентификация
+
+В проект подключена базовая Spring Security с JWT токеном.
+Тестовые пользователи в нём admin@mail.ru и user@mail.ru с паролями 123.
+У админа назначена роль admin, у юзера - customer.
+
+В контроллер AuthenticationController в метод register передается DTO с данными для регистрации, в метод authenticate передаётся DTO с email'ом и паролем, случае успешной аутентификации он возвращает токен. 
+Для того, чтобы организовать авторизованный доступ к эндпоинтам контроллеров, достаточно пометить метод контроллера аннотацией @PreAuthorize() и в скобках указать роль например hasRole('admin').
+В приложение добавлены роли: ADMIN, SUPERADMIN, MANAGER, CUSTOMER
+
+#### Пример метода:
+@GetMapping("/admin")
+@PreAuthorize("hasRole('admin')")
+public String getAdminInfo() {
+return "admin info";
+} 
+
+
+
