@@ -13,7 +13,7 @@ import javax.validation.constraints.*;
 @Schema(description = "\n" +
         "This is information about the destination. In our work, we will use IATA codes and Russian classification of the countries" +
         ". Since IATA provides information for money or to members, we will use open WIKI sources",
-        externalDocs = @ExternalDocumentation(url="https://en.wikipedia.org/wiki/International_Air_Transport_Association_code", description = "For more information, follow the link"))
+        externalDocs = @ExternalDocumentation(url="https://en.wikipedia.org/wiki/International_Air_Transport_Association_code", description = "For more information follow the link"))
 
 public class DestinationDto {
 
