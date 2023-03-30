@@ -1,0 +1,50 @@
+dataBaseChangeLog:
+  -changeSet:
+    id: UXAIR-1012-1
+  author: Max
+  changes:
+    - createTable:
+        tableName: ticket
+        columns:
+          - column:
+              name: id
+              type: BIGINT
+              autoIncrement: true
+              constrains:
+                primaryKey: true
+                nullable: false
+          - column:
+            name: passenger
+            type: varchar
+            constrains:
+              nullable: false
+          - column:
+            name: booking
+            type: varchar
+            constrains:
+              nullable: false
+          - column:
+            name: seatCategory
+            type: varchar
+            constrains:
+              nullable: false
+          - column:
+            name: inFlightServices
+            type: varchar
+            constrains:
+              nullable: false
+          - column:
+            name: fare
+            type: integer
+            constrains:
+              nullable: false
+          - column:
+            name: currency
+            type: integer
+            constrains:
+              nullable: false
+          - column:
+            name: flight
+            type: varchar
+            constrains:
+              nullable: false
