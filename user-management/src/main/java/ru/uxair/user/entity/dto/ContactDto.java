@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import ru.uxair.user.entity.ContactType;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -20,7 +19,7 @@ public class ContactDto {
 
     @Schema(description = "Contact type")
     @NotNull(message = "Select contact type")
-    private ContactType type;
+    private String type; // ToDo ContactType
 
     @Schema(description = "Contact value")
     @NotEmpty(message = "Input contact")
