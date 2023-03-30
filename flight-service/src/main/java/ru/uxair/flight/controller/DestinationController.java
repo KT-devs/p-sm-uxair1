@@ -9,7 +9,7 @@ import java.util.List;
 
 
 public interface DestinationController {
-    ResponseEntity<DestinationDto> getDestinationById(@PathVariable(value = "id") String id);
+    ResponseEntity <DestinationDto> getDestinationById(@PathVariable(value = "id") String id);
     ResponseEntity <List<DestinationDto>> getDestinationByCity (@PathVariable (value="city") String city);
     ResponseEntity  <List<DestinationDto>> getDestinationByCountry (@PathVariable(value="countryName") String countryName);
     ResponseEntity <HttpStatus> createDestination (@RequestBody DestinationDto destinationDto);

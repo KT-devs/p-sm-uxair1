@@ -11,6 +11,7 @@ import javax.validation.constraints.*;
 public class DestinationDto {
 
     @Pattern(regexp = "[A-Z]{3}", message = "Airport code must have format XXX")
+
     private String airportCode;
 
     @NotBlank(message = "Name of city cannot be empty")

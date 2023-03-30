@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -16,6 +18,7 @@ import javax.persistence.Table;
 @Table(name="destinations")
 public class Destination {
     @Id
+    @Column ()
     private String airportCode;
     private String city;
     private String countryCode;

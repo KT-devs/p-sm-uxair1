@@ -1,5 +1,5 @@
 -  changeSet:
-     id: 20230327-flight-add-destination-entity
+     id: 20230327-flight-service-add-destination-entity
      author:  moiseev nikolay
      changes:
        - createTable:
@@ -7,7 +7,7 @@
            columns:
              - column:
                  name: airport_code
-                 type: varchar(3)
+                 type: char(3)
                  autoIncrement: false
                  constraints:
                    primaryKey: true
@@ -20,7 +20,7 @@
                    nullable: false
              - column:
                  name: country_code
-                 type: varchar(2)
+                 type: char(2)
                  constrains:
                    nullable: false
              - column:
@@ -35,7 +35,7 @@
                    nullable: false
              - column:
                  name: timezone
-                 type: varchar(4)
+                 type: char(4)
                  constrains:
                    nullable: false
 

@@ -19,9 +19,18 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public Destination findDestinationById(String id) {
-        return destinationRepository.findById(id).orElseThrow();
+    public Destination findDestinationById(String airportCode) {
+
+        Destination destination= destinationRepository.findByAirportCodeContainingIgnoreCase(airportCode);
+
+        if ( destination!=null) {
+            return  destination;
+        }else {
+            throw new DestinationNotFoundException();
+        }
     }
+
+
 
     @Override
     public List<Destination> findDestinationByCity(String city) {
