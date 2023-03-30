@@ -1,0 +1,51 @@
+dataBaseChangeLog:
+  - changeSet:
+      id: UXAR1-1027
+      author: Evgeny
+      changes:
+        - createTable:
+            tableName: documents
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: passenger
+                  type: varchar
+                  constrains:
+                    nullable: false
+              - column:
+                  name: type
+                  type: varchar
+                  constrains:
+                    nullable: false
+              - column:
+                  name: number
+                  type: BIGINT
+                  constrains:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: expiry_date
+                  type: date
+                  constrains:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  constrains:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: timestamp
+                  constrains:
+                    nullable: false
+              - column:
+                  name: is_default
+                  type: BOOLEAN
+                  constrains:
+                    nullable: false
