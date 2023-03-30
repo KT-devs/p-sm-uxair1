@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @ToString
 @RequiredArgsConstructor
 @Table(name="destinations")
+
 public class Destination {
     @Id
     @Column ()

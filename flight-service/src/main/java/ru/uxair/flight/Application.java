@@ -10,9 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @OpenAPIDefinition(
         info = @Info(title = " UX Air API", version = "0.0.1"),
-        servers = {@Server(url="http://localhost:8080")},
         tags = {@Tag(name = "Destination", description = "This is the Destination .")}
-
 )
 public class Application {
 

@@ -13,7 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestControllerAdvice
-public class GlobalControllerExceptionHandler {
+public class GlobalControllerExceptionHandler  extends AbstractExceptionHandler{
 
 
 
