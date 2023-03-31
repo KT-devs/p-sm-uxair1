@@ -4,8 +4,7 @@
     url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${SPRING_DATASOURCE_USERNAME:root}
     password: ${SPRING_DATASOURCE_PASSWORD:root}
-  application:
-    name: config-service
+
   main:
     web-application-type: reactive
     env:
