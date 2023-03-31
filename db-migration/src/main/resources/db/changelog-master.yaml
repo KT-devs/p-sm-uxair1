@@ -3,3 +3,6 @@ databaseChangeLog:
       id: 1.0
       author: Ivan
       tag: create-table
+
+  - include:
+      file: db/changeset/20230331-seat-add-table.yaml

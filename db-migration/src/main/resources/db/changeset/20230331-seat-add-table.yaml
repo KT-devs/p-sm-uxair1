@@ -1,0 +1,30 @@
+dataBaseChangeLog:
+  -changeSet:
+    id: UXAIR-1007-1
+  author: Max
+  changes:
+    - createTable:
+        tableName: seat
+        columns:
+          - column:
+              name: id
+              type: BIGINT
+              autoIncrement: true
+              constrains:
+                primaryKey: true
+                nullable: false
+          - column:
+            name: aircraft_id
+            type: BIGINT
+            constrains:
+              nullable: false
+          - column:
+            name: seatType
+            type: BIGINT
+            constrains:
+              nullable: false
+          - column:
+            name: seatNumber
+            type: varchar
+            constrains:
+              nullable: false
