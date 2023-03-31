@@ -1,0 +1,21 @@
+jpa:
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQL9Dialect
+      show_sql: true
+      hbm2ddl:
+        auto: none
+      current_session_context_class: thread
+
+server:
+  port: ${PORT:8085}
+  application:
+    name: flight
+
+  profiles:
+    active: local
+  springdoc:
+    show-actuator: true
+    swagger-ui:
+      enabled: true
+      path: /swagger-ui.html
