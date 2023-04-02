@@ -7,7 +7,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import ru.uxair.flight.util.exceptions.DestinationNotFoundException;
+import ru.uxair.flight.util.exceptions.ResourceNotFoundException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,9 +15,7 @@ import java.util.Map;
 @RestControllerAdvice
 public class GlobalControllerExceptionHandler  extends AbstractExceptionHandler{
 
-
-
-    @ExceptionHandler(DestinationNotFoundException.class)
+    @ExceptionHandler(ResourceNotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ResponseEntity<String> handleDestinationNotFound(RuntimeException ex) {
         return new ResponseEntity<>(ex.getMessage(), HttpStatus.NOT_FOUND);
@@ -35,6 +33,4 @@ public class GlobalControllerExceptionHandler  extends AbstractExceptionHandler{
         });
         return errors;
     }
-
-
 }

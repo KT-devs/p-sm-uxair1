@@ -1,6 +1,7 @@
 package ru.uxair.flight.entity.dto;
 
 
+
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
@@ -16,6 +17,9 @@ import javax.validation.constraints.*;
         externalDocs = @ExternalDocumentation(url="https://en.wikipedia.org/wiki/International_Air_Transport_Association_code", description = "For more information follow the link"))
 
 public class DestinationDto {
+
+    @Positive
+    private Long id;
 
     @Schema(description = "IATA Code. A code of 3 letters of the Latin alphabet that can be assigned to an airport, city, railway station, sea or river port, or other major transport hub.")
     @Pattern(regexp = "[A-Z]{3}", message = "Airport code must have format XXX")

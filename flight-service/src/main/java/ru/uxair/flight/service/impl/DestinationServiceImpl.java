@@ -6,7 +6,8 @@ import org.springframework.stereotype.Service;
 import ru.uxair.flight.entity.Destination;
 import ru.uxair.flight.repository.DestinationRepository;
 import ru.uxair.flight.service.DestinationService;
-import ru.uxair.flight.util.exceptions.DestinationNotFoundException;
+import ru.uxair.flight.util.exceptions.ResourceNotFoundException;
+
 
 import java.util.List;
 
@@ -19,15 +20,16 @@ public class DestinationServiceImpl implements DestinationService {
     }
 
     @Override
-    public Destination findDestinationById(String airportCode) {
+    public Destination findDestinationByAirportCode(String airportCode) {
 
         Destination destination= destinationRepository.findByAirportCodeContainingIgnoreCase(airportCode);
 
-        if ( destination!=null) {
-            return  destination;
-        }else {
-            throw new DestinationNotFoundException();
+        if (destination != null) {
+            return destination;
+        } else {
+            throw new ResourceNotFoundException(airportCode);
         }
+
     }
 
 
@@ -40,7 +42,7 @@ public class DestinationServiceImpl implements DestinationService {
         if ( !getByCity.isEmpty()) {
             return  getByCity;
         }else {
-            throw new DestinationNotFoundException();
+           return null;
         }
     }
 
@@ -53,21 +55,26 @@ public class DestinationServiceImpl implements DestinationService {
         if ( !getByCountryName.isEmpty()) {
             return getByCountryName;
         }else {
-            throw new DestinationNotFoundException();
+            return null;
         }
     }
 
     @Override
     public void saveDestination(Destination destination) {
         destinationRepository.save(destination);
-
     }
 
     @Override
-    public void updateDestination(Destination destination) {
-        destinationRepository.save(destination);
+    public void updateDestination(Long id ,Destination destination) {
 
+        if (destinationRepository.existsById(String.valueOf(id))) {
+            destination.setId(id);
+            destinationRepository.save(destination);
+        }else {
+            throw new ResourceNotFoundException("=" + id);
+        }
     }
 
-
 }
+
+

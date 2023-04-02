@@ -8,7 +8,6 @@ import ru.uxair.flight.controller.DestinationController;
 import ru.uxair.flight.entity.dto.DestinationDto;
 import ru.uxair.flight.service.DestinationService;
 import ru.uxair.flight.util.mapper.DestinationMapper;
-import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,11 +24,16 @@ public class DestinationControllerImpl implements DestinationController {
         this.mapper = mapper;
     }
     @Override
-      public ResponseEntity <DestinationDto>getDestinationById( @PathVariable  String id) {
-        DestinationDto destinationById = mapper.convertToDestinationDto(service.findDestinationById(id));
+      public ResponseEntity <DestinationDto>getDestinationById( @PathVariable  String airportCode) {
+        DestinationDto destinationByAirportCode = mapper.convertToDestinationDto(service.findDestinationByAirportCode(airportCode));
 
-        if (destinationById==null) {
-            return new ResponseEntity<>(destinationById, HttpStatus.OK);
+
+        if (destinationByAirportCode!=null) {
+
+            System.out.println(destinationByAirportCode);
+
+            System.out.println(destinationByAirportCode);
+            return new ResponseEntity<>(destinationByAirportCode, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }

@@ -3,12 +3,10 @@ package ru.uxair.flight.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
-import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import lombok.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +21,7 @@ import java.util.List;
 @Tag(name = "Destination", description = "Methods for destination operation")
 public interface DestinationController {
 
-    @GetMapping("/{id}")
+    @GetMapping("/{airportCode}")
     @Operation(
             tags = {"Destination"},
             summary = "A method for searching airports by airport code",
@@ -47,7 +45,7 @@ public interface DestinationController {
                             schema = @Schema(implementation = ErrorResponseDto.class))})
     })
     ResponseEntity <DestinationDto> getDestinationById(@Parameter(description = "Unique identifier of airport", required = true)
-                                                       @NotBlank @PathVariable("id") String id);
+                                                       @NotBlank @PathVariable("airportCode") String airportCode);
     @GetMapping("/city/{city}")
     @Operation(
             tags = {"Destination"},
